@@ -61,6 +61,4 @@ VOID scanCode(VOID);
 
 INT saveFileCode(INT code);
 
-
-
 #endif // __KEYSCAN_H__
