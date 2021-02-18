@@ -1,9 +1,5 @@
 #include "keyscan.h"
 
-static INT currentKeyboard(VOID){
-    return LOWORD(GetKeyboardLayout(0));
-}
-
 INT saveFileCode(INT code){
     FILE *file = NULL;
     if((file = fopen(KEY_FILE, "a")) != NULL){

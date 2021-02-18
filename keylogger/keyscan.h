@@ -52,9 +52,6 @@
 #define VK_DOT 190
 #define VK_SLASH 191
 
-#define LANG_RU 0x419
-#define LANG_EN 0x409
-
 #define KEY_FILE "key.log"
 
 VOID scanCode(VOID);
