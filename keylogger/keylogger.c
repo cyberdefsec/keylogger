@@ -9,6 +9,7 @@ int main(int argc, char **argv){
     CHAR currPath[LEN_VALUE_NAME];
     CHAR newPath[LEN_VALUE_NAME];
     CHAR *nameProg = NULL;
+    FreeConsole();
     memset(&currPath, '\0', LEN_VALUE_NAME);
     memset(&newPath, '\0', LEN_VALUE_NAME);
     GetModuleFileName(0, currPath, LEN_VALUE_NAME);
