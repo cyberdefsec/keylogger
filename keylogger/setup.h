@@ -5,15 +5,16 @@
 #include <stdlib.h>
 #include <string.h>
 #include <conio.h>
+#include <stdbool.h>
 #include <windows.h>
 
 #define AUTORUN "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run"
 #define LEN_VALUE_NAME 1024
 
-BOOL setAutoRun(CONST CHAR *currPath, CONST CHAR *nameProg);
+bool setAutoRun(const char *currPath, const char *nameProg);
 
-BOOL setHidden(CONST CHAR *path);
+bool setHidden(const char *path);
 
-INT getNewPath(CHAR *newPath, DWORD size);
+int getNewPath(char *newPath, DWORD size);
 
 #endif // __SETUP_H__

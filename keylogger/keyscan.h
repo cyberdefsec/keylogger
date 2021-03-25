@@ -54,8 +54,8 @@
 
 #define KEY_FILE "key.log"
 
-VOID scanCode(VOID);
+void scanCode(void);
 
-INT saveFileCode(INT code);
+int saveFileCode(int code);
 
 #endif // __KEYSCAN_H__
