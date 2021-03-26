@@ -52,10 +52,7 @@
 #define VK_DOT 190
 #define VK_SLASH 191
 
-#define KEY_FILE "key.log"
+void scanCode(const char *file);
 
-void scanCode(void);
-
-int saveFileCode(int code);
 
 #endif // __KEYSCAN_H__
