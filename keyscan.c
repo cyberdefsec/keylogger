@@ -1,5 +1,4 @@
 #include "keyscan.h"
-#include "setup.h"
 
 static int saveFileCode(int code, const char *fileName){
     FILE *file = NULL;

